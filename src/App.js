@@ -7,11 +7,15 @@ import AddOption from './components/AddOption'
 
 class App extends Component {
   render() {
+    const title = 'Indecision'
+    const subtitle = 'Put your life in the hands of a computer'
+    const options = ['Thing 1', 'Thing 2', 'Thing 3']
+
     return (
       <div>
-        <Header />
+        <Header title={title} subtitle={subtitle} />
         <Action />
-        <Options />
+        <Options options={options}/>
         <AddOption />
       </div>
     )
