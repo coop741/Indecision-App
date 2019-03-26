@@ -12,9 +12,10 @@ class App extends Component {
     super(props)
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
     this.handlePick = this.handlePick.bind(this)
+    this.handleAddOption = this.handleAddOption.bind(this)
 
     this.state = {
-      options : ['Thing 1', 'Thing 2', 'Thing 3']
+      options : []
     }
   }
 
@@ -34,6 +35,20 @@ class App extends Component {
     alert(option)
   }
 
+  handleAddOption(option) {
+    if(!option) {
+      return 'Enter valid value to add to item'
+    } else if(this.state.options.indexOf(option) > -1) {
+      return 'This option already exists'
+    } else {
+      this.setState((prevState) => {
+        return {
+          options: prevState.options.concat([option])
+        }
+      })
+    }
+  }
+
   render() {
     const title = 'Indecision'
     const subtitle = 'Put your life in the hands of a computer'
@@ -49,7 +64,9 @@ class App extends Component {
           options={this.state.options}
           handleDeleteOptions={this.handleDeleteOptions}
         />
-        <AddOption />
+        <AddOption 
+          handleAddOption={this.handleAddOption}
+        />
         <VisibilityToggle />
       </div>
     )
