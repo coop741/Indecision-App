@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import Option from './Option';
 
 class Options extends Component {
+  constructor(props) {
+    super(props);
+    this.handleRemoveAll = this.handleRemoveAll.bind(this)
+  }
+  
   handleRemoveAll() {
-    alert('Removed All!')
+    // alert('Removed All!')
+    console.log(this.props.options)
   }
 
   render() {

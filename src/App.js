@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Action from './components/Action';
 import Options from './components/Options'
 import AddOption from './components/AddOption'
+import Counter from './components/Counter'
 
 class App extends Component {
   render() {
@@ -13,10 +14,11 @@ class App extends Component {
 
     return (
       <div>
-        <Header title={title} subtitle={subtitle} />
+        {/* <Header title={title} subtitle={subtitle} />
         <Action />
         <Options options={options}/>
-        <AddOption />
+        <AddOption /> */}
+        <Counter />
       </div>
     )
   }
