@@ -4,8 +4,6 @@ import Header from './components/Header';
 import Action from './components/Action';
 import Options from './components/Options'
 import AddOption from './components/AddOption'
-import Counter from './components/Counter'
-import VisibilityToggle from './components/VisibilityToggle'
 
 class App extends Component {
   constructor(props) {
@@ -67,7 +65,6 @@ class App extends Component {
         <AddOption 
           handleAddOption={this.handleAddOption}
         />
-        <VisibilityToggle />
       </div>
     )
   }

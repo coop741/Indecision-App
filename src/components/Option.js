@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class Option extends Component {
-  render() {
-    return (
-      <div>
-        <p>{this.props.optionText}</p>
-      </div>
-    )
-  }
-}
+const Option = props => {
+  return (
+    <div>
+      <p>{props.optionText}</p>
+    </div>
+  );
+};
 
-export default Option
+export default Option;
