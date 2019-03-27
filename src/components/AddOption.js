@@ -15,13 +15,9 @@ class AddOption extends Component {
     // if a value is returned, we know that an error has been returned. If it returns
     // undefined then the state has been set in the parent class as intended. AKA error=undefined.
     const error = this.props.handleAddOption(option);
-    console.log(error)
+    console.log(error);
 
-    this.setState(() => {
-      return {
-        error: error
-      };
-    });
+    this.setState(() => ({ error: error }));
   }
 
   render() {

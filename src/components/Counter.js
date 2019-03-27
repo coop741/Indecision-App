@@ -8,7 +8,7 @@ class Counter extends Component {
     this.handleReset = this.handleReset.bind(this)
 
     this.state = {
-      count: 0
+      count: props.count
     }
   }
   
@@ -77,6 +77,10 @@ class Counter extends Component {
       </div>
     )
   }
+}
+
+Counter.defaultProps = {
+  count: 0
 }
 
 export default Counter
