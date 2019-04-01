@@ -23,6 +23,14 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log("componenetDidMount")
+  }
+
+  componentDidUpdate() {
+    console.log("componentDidUpdate!")
+  }
+
   handleDeleteOptions() {
     // this.setState(() => {
     //   return {
@@ -73,8 +81,8 @@ class App extends Component {
           </section>
             <AddOption handleAddOption={this.handleAddOption} />
           <section className="section">
-            <List items={this.state.options} delete={this.handleDeleteOption} />
-            {/* <Action
+            {/* <List items={this.state.options} delete={this.handleDeleteOption} /> */}
+            <Action
               hasOptions={this.state.options.length > 0}
               handlePick={this.handlePick}
             />
@@ -82,7 +90,7 @@ class App extends Component {
               options={this.state.options}
               handleDeleteOptions={this.handleDeleteOptions}
               handleDeleteOption={this.handleDeleteOption}
-            /> */}
+            />
           </section>
         </div>
       </div>
