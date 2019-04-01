@@ -4,8 +4,11 @@ class AddOption extends Component {
   constructor(props) {
     super(props);
     this.handleAddOption = this.handleAddOption.bind(this);
+    this.showDetails = this.showDetails.bind(this)
+
     this.state = {
-      error: undefined
+      error: undefined,
+      visibility: false
     };
   }
   handleAddOption(e) {
@@ -20,14 +23,31 @@ class AddOption extends Component {
     this.setState(() => ({ error: error }));
   }
 
+  showDetails() {
+    // this.state.click = !this.state.click
+    this.setState(prevState => {
+      return {
+        visibility: !prevState.visibility
+      };
+    });
+    console.log(this.state.visibility);
+  }
+
   render() {
     return (
       <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.handleAddOption}>
-          <input type="text" name="option" />
-          <button>Add Option</button>
-        </form>
+        <button onClick={this.showDetails}>
+          {this.state.visibility === true ? "Hide" : "Add New Item"}
+        </button>
+        {this.state.visibility && (
+          <div>
+            {this.state.error && <p>{this.state.error}</p>}
+            <form onSubmit={this.handleAddOption}>
+              <input type="text" name="option" className="input" />
+              <button>Add Option</button>
+            </form>
+          </div>
+        )}
       </div>
     );
   }
