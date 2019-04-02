@@ -24,11 +24,29 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log("componenetDidMount")
+    try {
+      const json = localStorage.getItem('options')
+      const options = JSON.parse(json)
+      
+      if(options) {
+        this.setState(() => ({ options: options }))
+      }
+    } catch(e) {
+      // Do nothing, we don't want to access localStorage if item options doesn't exist
+      console.log("whoops", e)
+    }
   }
 
-  componentDidUpdate() {
-    console.log("componentDidUpdate!")
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.options.length !== this.state.options.length) {
+      const json = JSON.stringify(this.state.options)
+      localStorage.setItem('options', json)
+    }
+  }
+
+  // function fires just before a component is removed from the DOMS 
+  componentWillUnmount() {
+
   }
 
   handleDeleteOptions() {
@@ -100,10 +118,10 @@ class App extends Component {
 
 App.defaultProps = {
   options: [
-    "Description: Sets the name you want attached to your commit transaction. Command: $ git config--global user.name[name]",
-    "Description: Install git on Debian - based linux. Command: sudo apt-get install git",
-    "Description: Creates a new local repository with the specified name. Command: git init [project-name]",
-    "Description: Lists all local branches in the current repository. Command: git branch"
+    // "Description: Sets the name you want attached to your commit transaction. Command: $ git config--global user.name[name]",
+    // "Description: Install git on Debian - based linux. Command: sudo apt-get install git",
+    // "Description: Creates a new local repository with the specified name. Command: git init [project-name]",
+    // "Description: Lists all local branches in the current repository. Command: git branch"
   ]
 };
 

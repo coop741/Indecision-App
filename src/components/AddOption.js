@@ -21,6 +21,11 @@ class AddOption extends Component {
     console.log(error);
 
     this.setState(() => ({ error: error }));
+
+    //Clear text input field after successful add
+    if(!error) {
+      e.target.elements.option.value = ''
+    }
   }
 
   showDetails() {
