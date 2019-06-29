@@ -109,6 +109,7 @@ class App extends Component {
               handleDeleteOptions={this.handleDeleteOptions}
               handleDeleteOption={this.handleDeleteOption}
             />
+            <Counter />
           </section>
         </div>
       </div>
